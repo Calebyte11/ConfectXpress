@@ -1,4 +1,4 @@
-Cake-Online-Store : is an e-commerce react app with a mobile first web design and it is built mainly with :
+Cake-Online-Store : is an e-commerce/online market place react app with a mobile first web design and it is built mainly with :
 1. React Js.
 2. Styled-components (CSS-In-JavaScript library) for styling.
 3. Redux library for global state management.
