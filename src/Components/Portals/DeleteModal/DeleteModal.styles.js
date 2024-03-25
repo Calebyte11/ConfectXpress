@@ -42,12 +42,13 @@ export const CloseButton = styled.button`
 export const DeleteModalButtonsDiv = styled(FlexDivRow)`
   gap: 20px;
   justify-content: flex-end;
+  margin-top: 10px;
 `;
 
 // ====== Remove Button & Cancel Button =========
 export const RemoveButton = styled.button`
   width: 75px;
-  background: #ff6464;
+  background: #994799;
   height: 28px;
   color: #fff;
   border-radius: 7px;

@@ -37,7 +37,10 @@ import { EmptyCart } from "../../../Assets/Images/Images";
 // ============ FUNCTIONAL COMPONENT =========
 function CartPage(props) {
   // ====== useState Hook for Local State =========
-  const [IsDelBtnClicked, setIsDelBtnClicked] = useState(false);
+  const [IsDelBtnClicked, setIsDelBtnClicked] = useState({
+    ClickedStatus: false,
+    ClickedData: null,
+  });
 
   // ======React Hooks for Global State & Actions ========
   const ArrOfCartItems = useSelector((state) => state.cartData);
@@ -47,12 +50,15 @@ function CartPage(props) {
 
   // ============ Event Handlers ===========
   const DeleteBtnHandler = (deletedItem) => {
-    setIsDelBtnClicked(true);
-    if (IsDelBtnClicked) {
-      dispatch(actionRemoveFromCart(deletedItem));
-      setIsDelBtnClicked(false);
+    // console.log(deletedItem);
+    // console.log(`The clicked data is ${IsDelBtnClicked}`);
+
+    if (IsDelBtnClicked.ClickedStatus === false) {
+      setIsDelBtnClicked({ ClickedStatus: true, ClickedData: deletedItem });
+    } else if (IsDelBtnClicked.ClickedStatus === true) {
+      dispatch(actionRemoveFromCart(IsDelBtnClicked.ClickedData));
+      setIsDelBtnClicked({ ClickedStatus: false, ClickedData: null });
     }
-    console.log("didigienjkgn");
   };
 
   const MinusBtnHandler = (CartItem) => {
@@ -68,7 +74,7 @@ function CartPage(props) {
   };
 
   const CloseDeleteModalHandler = () => {
-    setIsDelBtnClicked(false);
+    setIsDelBtnClicked({ ClickedStatus: false, ClickedData: null });
   };
 
   const CheckoutButtonHandler = () => {
@@ -88,7 +94,7 @@ function CartPage(props) {
           <ul>
             {ArrOfCartItems.map((CartItem) => {
               return (
-                <li key={CartItem.ProductmgSrc}>
+                <li key={CartItem.ProductId}>
                   <OneColumnListCard>
                     <CardBody>
                       <ImgAndDiscountDiv>
@@ -98,7 +104,7 @@ function CartPage(props) {
 
                       <ItemDetailsAndQtyDiv>
                         <ProductNameAndCategoryDiv>
-                          <span>the product name which is the actual name</span>
+                          <span>{CartItem.ProductImgName}</span>
                           <h6>category</h6>
                         </ProductNameAndCategoryDiv>
 
@@ -140,18 +146,20 @@ function CartPage(props) {
                         {Liked ? <BsHeartFill /> : <BsHeart />}
                       </FavBtn>
 
-                      <DeleteBtn onClick={(e) => DeleteBtnHandler()}>
+                      <DeleteBtn onClick={(e) => DeleteBtnHandler(CartItem)}>
                         <FaRegTrashAlt />
                       </DeleteBtn>
+
+                      {IsDelBtnClicked.ClickedStatus ? (
+                        <DeleteModal
+                          CloseModalHandler={CloseDeleteModalHandler}
+                          RemoveFromCartHandler={(e) =>
+                            DeleteBtnHandler(CartItem)
+                          }
+                        />
+                      ) : null}
                     </LikedAndDeleteBtnsDiv>
                   </OneColumnListCard>
-
-                  {IsDelBtnClicked ? (
-                    <DeleteModal
-                      CloseModalHandler={CloseDeleteModalHandler}
-                      RemoveFromCartHandler={(e) => DeleteBtnHandler(CartItem)}
-                    />
-                  ) : null}
                 </li>
               );
             })}
@@ -159,7 +167,7 @@ function CartPage(props) {
         </OneColumnListContainer>
       ) : (
         <EmptyCartContainer>
-          <img src={EmptyCart} alt="Empty Cart"/>
+          <img src={EmptyCart} alt="Empty Cart" />
           <h2>Your cart is empty!</h2>
           <span>
             No item added to cart yet, Browse our categories and select items

@@ -1,20 +1,16 @@
 import React from "react";
 import { FavButton, PopularListContainer } from "./PopularList.styles";
 import {
-  BlackForestCake,
   PepperoniPizza,
-  ChristmasChic,
-  ChocoParfait,
-  WedCake,
-  Tiramisu,
   VanillaIce,
-  WhiteCake,
   Sharwama,
   Doughs,
-  CheesePizza,
   CupCakePop,
+  Cake,
+  EggRoll,
+  CakeParf,
 } from "../../../../Assets/Images/Images";
-import { BsStarFill, BsHeartFill,BsHeart } from "react-icons/bs";
+import { BsStarFill, BsHeartFill, BsHeart } from "react-icons/bs";
 
 import { useDispatch } from "react-redux";
 import {
@@ -23,18 +19,14 @@ import {
 } from "../../../../State Management/Redux/Ducks/PagesNavigationReducer";
 
 const popularArr = [
-  { ImgSrc: WhiteCake },
-  { ImgSrc: Sharwama },
-  { ImgSrc: CheesePizza },
-  { ImgSrc: CupCakePop },
-  { ImgSrc: BlackForestCake },
-  { ImgSrc: PepperoniPizza },
-  { ImgSrc: ChristmasChic },
-  { ImgSrc: ChocoParfait },
-  { ImgSrc: WedCake },
-  { ImgSrc: Tiramisu },
-  { ImgSrc: VanillaIce },
-  { ImgSrc: Doughs },
+  { ImgSrc: EggRoll, ImgName: "Egg Roll" },
+  { ImgSrc: Cake , ImgName: "Chocolate Cake" },
+  { ImgSrc: PepperoniPizza, ImgName: "Salami pizza" },
+  { ImgSrc: Sharwama, ImgName: "Sharwama" },
+  { ImgSrc: CupCakePop, ImgName: "Cupcake" },
+  { ImgSrc: VanillaIce, ImgName: "Vanilla-iced cake" },
+  { ImgSrc: Doughs, ImgName: "Doughnuts" },
+  { ImgSrc: CakeParf, ImgName: "Cake parfait" },
 ];
 
 // ======================== THE FUNCTIONAL COMPONENT =====================
@@ -70,7 +62,7 @@ function PopularList(props) {
       <ul>
         {popularArr.map((eachItem) => {
           return (
-            <li key={eachItem.ImgSrc} liked ={Liked}>
+            <li key={eachItem.ImgSrc} liked={Liked.toString()}>
               <img
                 src={eachItem.ImgSrc}
                 onClick={(e) => {
@@ -82,26 +74,26 @@ function PopularList(props) {
               <div>
                 <section>
                   <div>
-                    <h4>product name</h4>
+                    <h4>{eachItem.ImgName}</h4>
                     <h6>category</h6>
                   </div>
 
-                  <FavButton liked={Liked}>
-                    {Liked? <BsHeartFill/> : <BsHeart/> }
+                  <FavButton liked={Liked.toString()}>
+                    {Liked ? <BsHeartFill /> : <BsHeart />}
                   </FavButton>
                 </section>
 
                 <section>
                   <div>
                     <section>
-                    <button>
-                      <BsStarFill />
-                      <BsStarFill />
-                      <BsStarFill />
-                      <BsStarFill />
-                      <BsStarFill />
-                    </button>
-                    <span>| 19 ratings</span>
+                      <button>
+                        <BsStarFill />
+                        <BsStarFill />
+                        <BsStarFill />
+                        <BsStarFill />
+                        <BsStarFill />
+                      </button>
+                      <span>| 19 ratings</span>
                     </section>
                   </div>
                   <h5>₦3,000</h5>

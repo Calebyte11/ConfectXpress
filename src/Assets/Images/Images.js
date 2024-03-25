@@ -9,34 +9,28 @@ import GrilledChicken from "./categoryImgs/grilledM.jpg";
 import Meatpie from "./categoryImgs/meatpie.jpg";
 
 //.......... for the logo images ========
-import Logo from "./LogoImgs/download11.jfif";
+import Logo from "./LogoImgs/new confect logo copy.png";
+import GoogleIcon from './LogoImgs/google.svg';
 
 //========= for popular imgs ========
-import BlackForestCake from "./popularImgs/pop-blackforestcake.jpg";
+import Cake from "./popularImgs/cake.jpg";
 import PepperoniPizza from "./popularImgs/pizza with pepperoni.jpg";
-import CupCakePop from "./TopDeals/topcupcake1.jpg";
-import ChristmasChic from "./popularImgs/pop-christmasgrilled.jpg";
-import ChocoParfait from "./popularImgs/pop-choccakeparf.jpg";
-import WedCake from "./popularImgs/wedCake.jpg";
+import CupCakePop from "./TopDeals/topcupcake2.jpg";
+import CheeseCakeParfait from "./popularImgs/cheesecake parfait.jpg";
 import VanillaIce from "./popularImgs/pop-vanillaicecreamcake.jpg";
-import Tiramisu from "./popularImgs/pop-tiramisucake.jpg";
-import WhiteCake from "./popularImgs/pop-whitecake.jpg";
+import PuffPuff from "./popularImgs/Puff Puff.jpg"
 import Sharwama from "./popularImgs/pop-sharw.jpg";
 import Doughs from "./popularImgs/pop-dough.jpg";
-import CheesePizza from "./popularImgs/pop-pizza&cheese.jpg";
+import EggRoll from "./popularImgs/Egg roll.jpg";
 
 // ====== for the top deals ========
-import ItalianCursine from "./TopDeals/topitalian-cuisine.jpg";
-import Burger1 from "./TopDeals/topburger.jpg";
+import ChinChin from "./TopDeals/Chin chin.jpg";
+import CoconutCandy from "./TopDeals/Coconut candy.jpg";
+import JamDough from "./TopDeals/Jam Doughnut.jpg";
+import MeatPie from "./TopDeals/Meat Pie.jpg";
+import Burger from "./TopDeals/topburger.jpg";
 import Cupcake from "./TopDeals/topcupcake2.jpg";
-import Topcake2 from "./TopDeals/topcake2.jpg";
-import TopCake from "./TopDeals/topcake.jpg";
-import Chicken from "./TopDeals/topchicken1.png";
-import TopPizza from "./TopDeals/toppizza.png";
-import Burger2 from "./TopDeals/topburger2.png";
-import BerryParfait from "./TopDeals/berriesParfait.jpg";
-import Chicken2 from "./TopDeals/topchicken2.jpg";
-import TopWedCake from "./TopDeals/topwedcake.png";
+import ItalianCursine from "./TopDeals/topitalian-cuisine.jpg";
 
 // ====== for the Illustrations =========
 import EmptyCart from './Illustrations/empty-cart-5521508-4610092.png';
@@ -55,34 +49,29 @@ export {
   Meatpie,
 
   // ======for logo =====
-  Logo, 
+  Logo,
+  GoogleIcon,
 
   // ====for popular ======
-  BlackForestCake,
+  Cake,
   PepperoniPizza,
-  ChristmasChic,
-  ChocoParfait,
-  WedCake,
-  VanillaIce, 
-  Tiramisu,
-  WhiteCake,
+  VanillaIce,
   Sharwama,
   Doughs,
-  CheesePizza,
   CupCakePop,
+  EggRoll,
+  PuffPuff,
+  CheeseCakeParfait,
 
   // ====== for Top deals =====
   ItalianCursine,
-  Burger1,
+  ChinChin,
+  CoconutCandy,
+  JamDough,
+  MeatPie,
+  Burger,
   Cupcake,
-  Topcake2,
-  TopCake,
-  Chicken,
-  TopPizza, 
-  Burger2,
-  BerryParfait,
-  Chicken2,
-  TopWedCake,
+
 
   // ==== for the illustrations ====
   EmptyCart,

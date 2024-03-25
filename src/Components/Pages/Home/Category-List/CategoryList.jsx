@@ -39,7 +39,7 @@ const CategoryArr = [
     ImgSrc: Meatpie,
   },
   {
-    name: "Chicken and Chips",
+    name: "Chicken & Chips",
     ImgSrc: GrilledChicken,
   },
   {

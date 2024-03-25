@@ -1,15 +1,29 @@
-// ======== String Constants =========
+// ============== STRING CONSTANTS ===================
+// ===== view and expand actions =======
 const ACTION_CATEGORY_EXPAND =
   "cake-online-store/NavigationFeature/ACTION_CATEGORY_EXPAND";
 const ACTION_VIEW_PAGE_CATEGORIALLY =
   "cake-online-store/NavigationFeature/ACTION_VIEW_PAGE_CATEGORIALLY";
 const ACTION_VIEW_PRODUCT_PAGE =
   "cake-online-store/NavigationFeature/ACTION_VIEW_PRODUCT_PAGE";
-const ACTION_VIEW_CART_PAGE = "cake-online-store/NavigationFeature/ACTION_VIEW_CART_PAGE";
+const ACTION_VIEW_CART_PAGE =
+  "cake-online-store/NavigationFeature/ACTION_VIEW_CART_PAGE";
+const ACTION_VIEW_PROFILE_PAGE =
+  "cake-online-store/NavigationFeature/ACTION_VIEW_PROFILE_PAGE";
+const ACTION_VIEW_SELLER_PROFILE =
+  "cake-online-store/NavigationFeature/ACTION_VIEW_SELLER_PROFILE";
+
+// ===== reset view and expand actions ========
+const RESET_ACTION_VIEW_CART_PAGE =
+  "cake-online-store/Navigation/RESET_ACTION_VIEW_CART_PAGE";
 const RESET_ACTION_VIEW_PRODUCT_PAGE =
   "cake-online-store/NavigationFeature/RESET_ACTION_VIEW_PRODUCT_PAGE";
-const RESET_EXPAND = "cake-online-store/NavigationFeature/ACTION_RESET_EXPAND";
-
+const RESET_ACTION_VIEW_PROFILE_PAGE =
+  "cake-online-store/NavigationFeature/RESET_ACTION_VIEW_PROFILE_PAGE";
+const RESET_ACTION_VIEW_SELLER_PROFILE =
+  "cake-online-store/NavigationFeature/RESET_ACTION_VIEW_SELLER_PROFILE";
+const RESET_ALL_EXPAND =
+  "cake-online-store/NavigationFeature/ACTION_RESET_EXPAND";
 
 // ============= Initial State ==========
 const InitialState = {
@@ -24,10 +38,15 @@ const InitialState = {
     pageData: null,
   },
   viewCartPage: false,
+  viewProfilePage: false,
+  viewSellerProfile: false,
+  cachedDataForProductPage: {
+    
+  }
 };
 
 // ========== The Reducer ======== which is default export ====
-const pagesNavReducer = (state = InitialState, action) => {
+const PagesNavReducer = (state = InitialState, action) => {
   switch (action.type) {
     case ACTION_CATEGORY_EXPAND:
       return { ...state, categoryExpanded: true };
@@ -44,7 +63,7 @@ const pagesNavReducer = (state = InitialState, action) => {
 
     case ACTION_VIEW_PRODUCT_PAGE:
       return {
-        ...state,
+        state,
         viewProductPage: true,
         productPageDetails: {
           pageData: action.data,
@@ -54,16 +73,44 @@ const pagesNavReducer = (state = InitialState, action) => {
     case ACTION_VIEW_CART_PAGE:
       return { state, viewCartPage: true };
 
+    case ACTION_VIEW_PROFILE_PAGE:
+      return { state, viewProfilePage: true };
+
+    case ACTION_VIEW_SELLER_PROFILE:
+      return {
+        state,
+        viewSellerProfile: true,
+      };
+
     case RESET_ACTION_VIEW_PRODUCT_PAGE:
       return {
-        ...state,
+        state,
         viewProductPage: false,
         productPageDetail: {
           pageData: null,
         },
       };
 
-    case RESET_EXPAND:
+    case RESET_ACTION_VIEW_CART_PAGE:
+      return {
+        ...state,
+        viewCartPage: false,
+      };
+
+    case RESET_ACTION_VIEW_PROFILE_PAGE:
+      return {
+        ...state,
+        viewProfilePage: false,
+      };
+
+    case RESET_ACTION_VIEW_SELLER_PROFILE:
+      return {
+        ...state,
+        viewSellerProfile: false,
+        cachedDataForProductPage : action.data,
+      };
+
+    case RESET_ALL_EXPAND:
       return {
         ...state,
         categoryExpanded: false,
@@ -77,6 +124,7 @@ const pagesNavReducer = (state = InitialState, action) => {
           pageData: null,
         },
         viewCartPage: false,
+        viewProfilePage: false,
       };
 
     default:
@@ -84,7 +132,7 @@ const pagesNavReducer = (state = InitialState, action) => {
   }
 };
 
-export default pagesNavReducer;
+export default PagesNavReducer;
 
 // ==================== The Action Creators ===================
 export const actionCategoryExpand = () => {
@@ -114,14 +162,45 @@ export const actionViewCartPage = () => {
   };
 };
 
+export const actionViewProfilePage = () => {
+  return {
+    type: ACTION_VIEW_PROFILE_PAGE,
+  };
+};
+
+export const actionViewSellerProfile = (cachedDataProductPage) => {
+  return {
+    type: ACTION_VIEW_SELLER_PROFILE,
+    data: cachedDataProductPage,
+  };
+};
+
+// ==== reset actions creators =====
 export const actionResetViewProductPage = () => {
   return {
     type: RESET_ACTION_VIEW_PRODUCT_PAGE,
   };
 };
 
+export const actionResetViewCartPage = () => {
+  return {
+    type: RESET_ACTION_VIEW_CART_PAGE,
+  };
+};
+
+export const actionResetViewProfilePage = () => {
+  return {
+    type: RESET_ACTION_VIEW_PROFILE_PAGE,
+  };
+};
+
+export const actionResetViewSellerProfile = () => {
+  return {
+    type: RESET_ALL_EXPAND,
+  };
+};
 export const actionResetAllExpand = () => {
   return {
-    type: RESET_EXPAND,
+    type: RESET_ALL_EXPAND,
   };
 };

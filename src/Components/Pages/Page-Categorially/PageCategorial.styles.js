@@ -54,7 +54,7 @@ export const PriNavList = styled.li`
     font-size: 15px;
     font-family: inherit;
     font-weight: 700;
-    color: ${({ active }) => (active ? "#ff6464" : "inherit")};
+    color: ${({ active }) => (active ? "#994799" : "inherit")};
     display: inline-block;
     white-space: nowrap;
     text-align: center;
@@ -67,7 +67,7 @@ export const PriNavList = styled.li`
 
   & > span {
     width: 40px;
-    border-bottom: 5px solid #ff6464;
+    border-bottom: 5px solid #994799;
     display: ${({ active }) => (active ? "block" : "none")};
     border-radius: 10px;
   }
@@ -121,7 +121,7 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
         top: -15px;
         right: -5px;
         margin-right: 5%;
-        color: #ff6464;
+        color: #994799;
         border-radius: 3px;
         background: #ffdfdf;
         padding: 2px 5px 2px 5px;
@@ -139,7 +139,7 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
 
       //==== price and slashed price ====
       & > div {
-        display : flex;
+        display: flex;
         flex-direction: column;
         padding: 0px 9px 0px 9px;
         margin-top: 10px;
@@ -157,6 +157,10 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
             margin-top: 0px;
             font-size: 14px;
             font-weight: 400;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            overflow-x: clip;
             text-transform: capitalize;
           }
 
@@ -172,8 +176,7 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
         }
 
         & > section {
-
-          & > div > button{
+          & > div > button {
             margin-left: 0px;
             border: none;
             background-color: transparent;

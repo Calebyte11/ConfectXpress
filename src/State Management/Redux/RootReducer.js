@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
-import pagesNavReducer from "./Ducks/PagesNavigationReducer";
+import PagesNavReducer from "./Ducks/PagesNavigationReducer";
 import CartReducer from "./Ducks/CartReducer"
+import UserDataReducer from "./Ducks/UserDataReducer";
 
 //========= The RootReducer combining all Reducers ========
 const rootReducer = combineReducers({
-    pagesNavigation: pagesNavReducer,
+    pagesNavigation: PagesNavReducer,
     cartData : CartReducer,
+    userData : UserDataReducer,
 });
 
 

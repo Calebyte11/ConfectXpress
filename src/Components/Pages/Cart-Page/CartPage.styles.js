@@ -13,6 +13,10 @@ export const CartPageContainer = styled.div`
   width: 100%;
   height: 100%;
   padding: 0px;
+  position: absolute;
+  top: 10%;
+  left: 0%;
+  right: 0%;
 `;
 
 // ======= Locator Text =========
@@ -91,7 +95,7 @@ export const ImgAndDiscountDiv = styled.section`
     top: 2px;
     right: -4px;
     margin-right: 5%;
-    color: #ff6464;
+    color: #994799;
     border-radius: 3px;
     background: #ffdfdf;
     padding: 1px 3px 1px 3px;
@@ -166,12 +170,12 @@ export const BtnsDiv = styled(ButtonDiv)`
 
 export const MinusButton = styled(MinusBtn)`
   background-color: ${(props) =>
-    props.countStopped ? "#ff686847" : "#ff6868"};
+    props.countStopped ? "#99479957" : "#994799"};
 `;
 
 export const PlusButton = styled(MinusButton)`
   background-color: ${(props) =>
-    props.countStopped ? "#ff686847" : "#ff6868"};
+    props.countStopped ? "#99479957" : "#994799"};
 `;
 
 export const ButtonSpan = styled(BtnSpan)`
@@ -199,7 +203,7 @@ export const FavBtn = styled.button`
   font-size : 18px;
 
   color: ${(props) =>
-    props.liked ? "#ff6464" : "#4f4f4f"};
+    props.liked ? "#994799" : "#4f4f4f"};
 `;
 
 // ===== for the delBtn ==========

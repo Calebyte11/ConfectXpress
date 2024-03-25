@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsStarFill, BsHeartFill, BsHeart } from "react-icons/bs"
+import { BsStarFill, BsHeartFill, BsHeart } from "react-icons/bs";
 // import ProductPage from "./ProductPage";
 import {
   PriNavList,
@@ -12,22 +12,25 @@ import { useSelector, useDispatch } from "react-redux";
 import { actionViewProductPage } from "../../../State Management/Redux/Ducks/PagesNavigationReducer";
 import { FavButton } from "../Home/Popular-List/PopularList.styles";
 
-
-
 //==================== FUNCTIONAL COMPONENT =====================
 function PageCategorial(props) {
-
-
   //=========== Reading the Global State & Dispatch with React-redux Hooks  ==========
-  const ArrofPageData = useSelector((state) => state.pagesNavigation.pageCategorialDetails);
+  const ArrofPageData = useSelector(
+    (state) => state.pagesNavigation.pageCategorialDetails
+  );
 
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
 
   // =======The Local useState ========
   const [Navigator, setNavigator] = useState([
-    { name: "Popular", active: false || ArrofPageData.pageActive.IsPopularPageActive},
-    { name: "Top Deals", active: false || ArrofPageData.pageActive.IsTopDealsPageActive },
+    {
+      name: "Popular",
+      active: false || ArrofPageData.pageActive.IsPopularPageActive,
+    },
+    {
+      name: "Top Deals",
+      active: false || ArrofPageData.pageActive.IsTopDealsPageActive,
+    },
     { name: "Cakes", active: false },
     { name: "Pizza", active: false },
     { name: "Shawarma", active: false },
@@ -39,10 +42,10 @@ function PageCategorial(props) {
   ]);
 
   const Liked = false;
-  
+
   // ========== Event Handlers ========
   const ProductImgClickHandler = (eachItem) => {
-    dispatch(actionViewProductPage(eachItem))
+    dispatch(actionViewProductPage(eachItem));
   };
 
   const NavClickHandler = (EachNav) => {
@@ -63,77 +66,77 @@ function PageCategorial(props) {
 
   //===================== CONDITIONAL RENDERING ==================
 
-    return (
-      <PageCategorialContainer>
-        <PagePrimaryNav>
-          <ul>
-            {Navigator.map((EachNav) => {
-              return (
-                <PriNavList
-                  key={EachNav.name}
-                  active={EachNav.active}
-                  onClick={() => NavClickHandler(EachNav)}
-                >
-                  <h3>{EachNav.name}</h3>
-                  <span></span>
-                </PriNavList>
-              );
-            })}
-          </ul>
-        </PagePrimaryNav>
+  return (
+    <PageCategorialContainer>
+      <PagePrimaryNav>
+        <ul>
+          {Navigator.map((EachNav) => {
+            return (
+              <PriNavList
+                key={EachNav.name}
+                active={EachNav.active}
+                onClick={() => NavClickHandler(EachNav)}
+              >
+                <h3>{EachNav.name}</h3>
+                <span></span>
+              </PriNavList>
+            );
+          })}
+        </ul>
+      </PagePrimaryNav>
 
-        <TwoColumnListContainer>
-          <ul>
-            {ArrofPageData.pageData.map((eachItem) => {
-              return (
-                <li key={eachItem.ImgSrc} liked={Liked}>
-                  <h5>-40%</h5>
-                  <img
-                    src={eachItem.ImgSrc}
-                    alt="Cakes"
-                    onClick={(e) => {
-                      ProductImgClickHandler(eachItem);
-                    }}
-                  />
+      <TwoColumnListContainer>
+        <ul>
+          {ArrofPageData.pageData.map((eachItem) => {
+            return (
+              <li key={eachItem.ImgSrc} liked={Liked}>
+                <h5>-40%</h5>
+                <img
+                  src={eachItem.ImgSrc}
+                  alt="Cakes"
+                  onClick={(e) => {
+                    ProductImgClickHandler(eachItem);
+                  }}
+                />
 
-                  <div>
-                    <section>
-                      <div>
-                        <h4>product name</h4>
-                        <h6>category</h6>
-                      </div>
-
-                      <FavButton liked ={Liked}>
-                        { Liked ? <BsHeartFill/> : <BsHeart/> }
-                      </FavButton>
-                    </section>
-
+                <div>
+                  <section>
                     <div>
-                      <h4>₦3,000</h4>
-                      <h5>₦4,500</h5>
+                      <h4>{eachItem.ImgName}</h4>
+                      <h6>category</h6>
                     </div>
 
-                    <section>
-                      <div>
-                        <button>
-                          <BsStarFill />
-                          <BsStarFill />
-                          <BsStarFill />
-                          <BsStarFill />
-                          <BsStarFill />
-                        </button>
-                      </div>
+                    <FavButton liked={Liked}>
+                      {Liked ? <BsHeartFill /> : <BsHeart />}
+                    </FavButton>
+                  </section>
 
-                      <span>| 19 ratings</span>
-                    </section>
+                  <div>
+                    <h4>₦3,000</h4>
+                    <h5>₦4,500</h5>
                   </div>
-                </li>
-              );
-            })}
-          </ul>
-        </TwoColumnListContainer>
-      </PageCategorialContainer>
-    );
+
+                  <section>
+                    <div>
+                      <button>
+                        <BsStarFill />
+                        <BsStarFill />
+                        <BsStarFill />
+                        <BsStarFill />
+                        <BsStarFill />
+                      </button>
+                    </div>
+
+                    <span>| 19 ratings</span>
+                  </section>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </TwoColumnListContainer>
+    </PageCategorialContainer>
+  );
 }
 
 export default PageCategorial;

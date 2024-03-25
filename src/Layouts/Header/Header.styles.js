@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const HeaderDiv = styled.div`
-  /* min-width : 100%; */
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -15,6 +14,7 @@ export const HeaderDiv = styled.div`
   z-index: 9999;
   box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
   color: #3c4043;
+  font-family: inherit;
 `;
 
 export const LogoSection1 = styled.div`
@@ -36,7 +36,6 @@ export const LogoSection1 = styled.div`
     padding: 0px 2px;
 
     & > img {
-      width: 110px;
       height: 40px;
       margin-top: -8px;
       cursor: pointer;
@@ -97,13 +96,13 @@ export const Button = styled.button`
   color: #3c4043;
   cursor: pointer;
   position: relative;
-  background:${(props => props.isActive ?  '#ffa2a257' : 'transparent')};
+  background:${(props => props.isActive ?  '#99479936' : 'transparent')};
   border-radius: 50%;
 
   & > span {
     font-size: 12px;
     font-weight: 700;
-    background: #ff6464;
+    background: #994799;
     width: 16px;
     aspect-ratio: 1;
     color: #fff;

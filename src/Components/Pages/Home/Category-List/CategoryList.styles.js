@@ -25,7 +25,7 @@ export const CategoryListContainer = styled.div`
       border: none;
       font-family: inherit;
       font-size: 14px;
-      color: #ff6464;
+      color: #994799;
       margin-right: 5px;
     }
   }
@@ -39,7 +39,7 @@ export const CategoryListContainer = styled.div`
     margin-top: 6px;
 
     & > li {
-      background: #ff6464;
+      background: #994799;
       min-width: 78px;
       padding: 6px;
       height: 120px;

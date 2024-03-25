@@ -20,7 +20,7 @@ const CartReducer = (state = InitialState, action) => {
 
     case ACTION_REMOVE_FROM_CART:
       return state.filter(
-        (item) => item.ProductImgSrc !== action.deletedItem.ProductImgSrc
+        (item) => item.ProductId  !== action.deletedItem.ProductId
       );
 
     case ACTION_INCREASE_PRODUCT_QUANTITY:

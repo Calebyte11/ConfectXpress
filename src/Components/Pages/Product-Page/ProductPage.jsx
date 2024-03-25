@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+// ======= importing uuid for creating id =========
+import { v4 as uuid } from "uuid";
 import {
   BuyButton,
   DetailsDiv,
@@ -11,12 +13,15 @@ import {
   ProductFooter,
   ProductName,
   RatingButton,
+  SoldByDiv,
 } from "./ProductPage.styles";
-import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { MdOutlineAddShoppingCart, MdOutlineChevronRight,  MdStore } from "react-icons/md";
 import { BsStarFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import AddToCartModal from "../../Portals/AddToCartModal/AddToCartModal";
 import { useDispatch, useSelector } from "react-redux";
 import { actionAddToCart } from "../../../State Management/Redux/Ducks/CartReducer";
+import {  actionViewSellerProfile } from "../../../State Management/Redux/Ducks/PagesNavigationReducer";
+
 
 function ProductPage(props) {
   // ======= UseStates =========
@@ -27,7 +32,8 @@ function ProductPage(props) {
   // ======= React-redux Hooks for Global State & Actions ======
   const dispatch = useDispatch();
 
-  const CartData = useSelector(state => state.cartData)
+  // const CartData = useSelector((state) => state.cartData);
+  const ExpansionObj = useSelector((state) => state.pagesNavigation)
 
   //======= Props Accessing and Destructring =======
   const PageData = props.dataForProductPage;
@@ -42,13 +48,15 @@ function ProductPage(props) {
   const AddToCartHandler = () => {
     setAddBtnClick(!AddBtnClick);
 
-    if(AddBtnClick){
-      dispatch(actionAddToCart({
-        ProductImgSrc : PageData.ImgSrc,
-        ProductQty : ProductQty
-      }));
-
-      console.log(CartData);
+    if (AddBtnClick) {
+      dispatch(
+        actionAddToCart({
+          ProductImgSrc: PageData.ImgSrc,
+          ProductImgName: PageData.ImgName,
+          ProductQty: ProductQty,
+          ProductId: uuid(),
+        })
+      );
     }
   };
 
@@ -68,6 +76,11 @@ function ProductPage(props) {
     }
   };
 
+  const SoldByClickHandler = (data) => {
+    dispatch(actionViewSellerProfile(data));
+    console.log(ExpansionObj);
+  };
+
   // ============== JSX RENDERING ===================
   return (
     <ProductContainer isFromHomepage={props.isFromHomepage}>
@@ -78,11 +91,7 @@ function ProductPage(props) {
       <DetailsDiv>
         <section>
           <ProductName>
-            <h4>
-              {" "}
-              the product name of the product which is same name of the
-              particular product{" "}
-            </h4>
+            <h4>{PageData.ImgName}</h4>
             <h6>category of the product</h6>
           </ProductName>
 
@@ -108,6 +117,18 @@ function ProductPage(props) {
 
           <NumOfRating> | 19 verified ratings </NumOfRating>
         </FlexDivRow>
+
+        <SoldByDiv onClick={() => SoldByClickHandler(PageData)} >
+          <span>Sold By</span>
+          <div>
+         <button><MdStore/></button> 
+          <span>Magic Tasty Treats</span>
+          <button><MdOutlineChevronRight/></button>
+       
+
+          </div>
+        </SoldByDiv>
+
       </DetailsDiv>
 
       <ProductFooter>

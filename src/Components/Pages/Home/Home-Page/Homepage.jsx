@@ -4,32 +4,53 @@ import Body from "../../../../Layouts/Body/Body";
 import Header from "../../../../Layouts/Header/Header";
 import ProductPage from "../../Product-Page/ProductPage";
 
-import { useSelector } from 'react-redux';
-
-
+import { useSelector } from "react-redux";
+import ProfilePage from "../../Profile-Page/ProfilePage";
+import CartPage from "../../Cart-Page/CartPage";
+import SellerProfilePage from "../../SellerProfilePage/SellerProfilePage";
 
 function Homepage() {
-
-  //=========  ==========
-  const navigationStateObj = useSelector(state => state.pagesNavigation);
-
   // ========= useState Hook ========
-  // const [ProductPageData, setProductPageData] = useState(null);
+  const navigationStateObj = useSelector((state) => state.pagesNavigation);
 
 
-  return (
-    <HomeDiv>
-      <Header />
-      {navigationStateObj.viewProductPage ? (
+  // ======== Conditional Rendering ========
+  if (navigationStateObj.viewProductPage === true) {
+    return (
+      <HomeDiv>
+        <Header />
         <ProductPage
           isFromHomepage={true}
           dataForProductPage={navigationStateObj.productPageDetails.pageData}
         />
-      ) : (
-        <Body/>
-      )}
-    </HomeDiv>
-  );
+      </HomeDiv>
+    );
+  } else if (navigationStateObj.viewProductPage === false) {
+    return (
+      <HomeDiv>
+        <Header />
+        <Body />
+      </HomeDiv>
+    );
+  } else if (navigationStateObj.viewCartPage === true) {
+    return (
+      <HomeDiv>
+        <Header />
+        <CartPage />
+      </HomeDiv>
+    );
+  } else if (navigationStateObj.viewProfilePage === true) {
+    return (
+      <HomeDiv>
+        <Header />
+        <ProfilePage />
+      </HomeDiv>
+    );
+  } else if (navigationStateObj.viewSellerProfile === true){
+    return (
+      <SellerProfilePage/>
+    )
+  }
 }
 
 export default Homepage;

@@ -49,7 +49,7 @@ export const BuyButton = styled.button`
   width: 70%;
   height: 42px;
   margin: auto;
-  background-color: #ff6464;
+  background-color: #994799;
   border: none;
   border-radius: 8px;
   color: #fff;
@@ -116,7 +116,7 @@ export const ProductName = styled.div`
 export const FavouriteButton = styled.button`
   background-color: transparent;
   width: 12%;
-  color: ${(props) => (props.liked ? "#ff6464" : "#4f4f4f")};
+  color: ${(props) => (props.liked ? "#994799" : "#4f4f4f")};
   border: none;
   outline: none;
   font-size: 18px;
@@ -152,7 +152,7 @@ export const PriceDiv = styled.div`
 
   & > h6 {
     margin-left: 10px;
-    color: #ff6464;
+    color: #994799;
     border-radius: 3px;
     background: #ffdfdf;
     padding: 1px 2px 1px 2px;
@@ -180,4 +180,31 @@ export const RatingButton = styled.button`
 export const NumOfRating = styled.span`
   font-size: 15px;
   color: #6570a7;
+`;
+
+// ======== for Sold-By div ===='
+export const SoldByDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  gap: 50px;
+  font-size: 16px;
+  margin-top: 16px;
+  box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px;
+  justify-content: space-between;
+  font-weight: 600;
+  padding: 0px 5px 0px 5px;
+  height: 40px;
+
+  & > div{
+    display: flex;
+    flex-direction: row;
+
+    & > button{
+    border: none;
+    background: transparent;
+    font-size: 19px;
+    }
+  }
 `;

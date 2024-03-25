@@ -16,7 +16,7 @@ function DeleteModal(props) {
   const PortalRoot = document.getElementById("portals-root");
 
   // ====== Props Destructuring ========
-  const { CloseModalHandler, RemoveFromCartHandler } = props; 
+  const { CloseModalHandler, RemoveFromCartHandler } = props;
 
   //   ======== RENDERING JSX ==========
   return createPortal(
@@ -26,10 +26,12 @@ function DeleteModal(props) {
         <CloseButton onClick={CloseModalHandler}>
           <BsXLg />
         </CloseButton>
-        <span>Do you really want to remove this item from cart ?</span>
+        <span>Do you want to remove this item from cart ?</span>
         <DeleteModalButtonsDiv>
           <CancelButton onClick={CloseModalHandler}>Cancel</CancelButton>
-          <RemoveButton onClick={RemoveFromCartHandler}>Remove</RemoveButton>
+          <RemoveButton onClick={(e) => RemoveFromCartHandler()}>
+            Remove
+          </RemoveButton>
         </DeleteModalButtonsDiv>
       </DeleteModalContainer>
     </OverlayDiv>,

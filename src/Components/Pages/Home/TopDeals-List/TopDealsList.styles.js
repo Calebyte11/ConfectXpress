@@ -36,7 +36,7 @@ export const TopDealsContainer = styled(PopularListContainer)`
         top: -15px;
         right: 0px;
         margin-right: 5%;
-        color: #ff6464;
+        color: #994799;
         border-radius: 3px;
         background: #ffdfdf;
         padding: 1px 5px 1px 5px;
@@ -62,6 +62,11 @@ export const TopDealsContainer = styled(PopularListContainer)`
             margin-top: 8px;
             font-size: 15px;
             text-transform: capitalize;
+            
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            display: inline-block;
+            overflow-x: clip;
           }
 
           & > h6 {

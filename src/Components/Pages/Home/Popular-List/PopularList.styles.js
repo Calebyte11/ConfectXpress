@@ -25,7 +25,7 @@ export const PopularListContainer = styled.div`
             font-family: inherit;
             font-size: 13px;
             font-weight: 400;
-            color: #ff6464;
+            color: #994799;
             margin-right: 5px;
         }
 
@@ -83,7 +83,7 @@ export const PopularListContainer = styled.div`
                         display: flex;
                         flex-direction: column;
                         overflow-y: hidden;
-                        width: 170px;
+                        // width: 170px;
                         gap: 1px;
                         justify-content: center;
 
@@ -92,6 +92,11 @@ export const PopularListContainer = styled.div`
                             margin-top: 8px;
                             font-size: 15px;
                             font-weight: 400;
+                            
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            display: inline-block;
+                            overflow-x: clip;
                             text-transform: capitalize;
                         }
 
@@ -111,7 +116,7 @@ export const PopularListContainer = styled.div`
                         outline: none;
                         margin-top: -15px;
                         font-size : 16px;
-                        color: ${(props) => (props.liked ? "#ff6464" : "#4f4f4f")};
+                        color: ${(props) => (props.liked ? "#994799" : "#4f4f4f")};
                     } */
 
                     & > div > section {
@@ -159,5 +164,5 @@ export const FavButton = styled.button`
     outline: none;
     margin-top: -15px;
     font-size : 16px;
-    color: ${(props) => (props.liked ? "#ff6464" : "#4f4f4f")};
+    color: ${(props) => (props.liked ? "#994799" : "#4f4f4f")};
 `;

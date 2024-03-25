@@ -92,7 +92,7 @@ export const ButtonDiv = styled.div`
 
 export const MinusBtn = styled.button`
   font-size: 16px;
-  background-color: ${(props) => props.countStopped? '#ff686847' :  '#ff6868'};
+  background-color: ${(props) => props.countStopped? '#ffbaff' :  '#994799'};
   width: 28px;
   aspect-ratio: 1;
   border-radius: 50%;
@@ -108,7 +108,7 @@ export const MinusBtn = styled.button`
 `;
 
 export const PlusBtn = styled(MinusBtn)`
-  background-color: ${(props) => props.countStopped? '#ff686847' :  '#ff6868'};
+  background-color: ${(props) => props.countStopped? '#ffbaff' :  '#994799'};
 `;
 
 export const BtnSpan = styled.span`
