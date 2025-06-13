@@ -19,10 +19,4 @@ export const BodyDiv = styled.div`
   left: 0%;
   right: 0%;
 
-  /* pointer-events: ${(props) =>
-    props.isExpanded.categoryExpanded ||
-    props.isExpanded.popularExpanded ||
-    props.isExpanded.topDealsExpanded
-      ? "none"
-      : "all"}; */
 `;

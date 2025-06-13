@@ -27,7 +27,7 @@ export const CloseNavBtn = styled.button`
   width: 25px;
   aspect-ratio: 1;
   height: 25px;
-  font-size: 20px;
+  font-size: 18px;
   border: none;
   position: absolute;
   top: 15px;
@@ -52,14 +52,14 @@ export const MenuBodyDiv = styled.div`
     justify-content: center;
 
     & > button {
-      font-size: 87px;
+      font-size: 84px;
       color: rgb(60, 64, 67);
       background-color: transparent;
       border: none;
     }
 
     & > span {
-      font-size: 15px;
+      font-size: 13px;
       font-weight: 400;
       text-transform: capitalize;
     }
@@ -79,14 +79,14 @@ export const MenuBodyDiv = styled.div`
     }
 
     & > li {
-      font-size: 17px;
+      font-size: 15px;
       margin-left: 25px;
       display: flex;
       flex-direction: row;
       gap: 8px;
 
       & > span {
-        font-size: 21px;
+        font-size: 19px;
       }
     }
   }

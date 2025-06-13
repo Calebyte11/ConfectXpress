@@ -3,12 +3,12 @@ import { PopularListContainer } from "../Popular-List/PopularList.styles";
 
 export const TopDealsContainer = styled(PopularListContainer)`
   margin-top: -15px;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 500;
 
   & > section {
     & > button {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 400;
     }
   }
@@ -33,7 +33,7 @@ export const TopDealsContainer = styled(PopularListContainer)`
 
       & > h5 {
         position: absolute;
-        top: -15px;
+        top: -10px;
         right: 0px;
         margin-right: 5%;
         color: #994799;
@@ -60,9 +60,8 @@ export const TopDealsContainer = styled(PopularListContainer)`
           & > h4 {
             height: 0px;
             margin-top: 8px;
-            font-size: 15px;
+            font-size: 13px;
             text-transform: capitalize;
-            
             white-space: nowrap;
             text-overflow: ellipsis;
             display: inline-block;
@@ -81,7 +80,7 @@ export const TopDealsContainer = styled(PopularListContainer)`
             height: 0px;
             margin-top: -3px;
             color: #a0a4a8;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
             text-decoration: line-through;
             text-decoration-color: #3c4043;

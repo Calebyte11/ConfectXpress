@@ -17,6 +17,7 @@ import {
   actionViewPageCategorially,
   actionViewProductPage,
 } from "../../../../State Management/Redux/Ducks/PagesNavigationReducer";
+import { MdOutlineChevronRight } from "react-icons/md";
 
 const popularArr = [
   { ImgSrc: EggRoll, ImgName: "Egg Roll" },
@@ -55,7 +56,8 @@ function PopularList(props) {
       <section>
         <span>Popular</span>
         <button onClick={() => handleViewMore(popularArr, activeStatus)}>
-          View more{" "}
+          View more
+          <MdOutlineChevronRight/>
         </button>
       </section>
 

@@ -29,6 +29,7 @@ import {
   actionIncreaseProductQty,
   actionDecreaseProductQty,
 } from "../../../State Management/Redux/Ducks/CartReducer";
+import { actionViewProductPage } from "../../../State Management/Redux/Ducks/PagesNavigationReducer";
 import { actionResetAllExpand } from "../../../State Management/Redux/Ducks/PagesNavigationReducer";
 import { useState } from "react";
 import DeleteModal from "../../Portals/DeleteModal/DeleteModal";
@@ -50,9 +51,6 @@ function CartPage(props) {
 
   // ============ Event Handlers ===========
   const DeleteBtnHandler = (deletedItem) => {
-    // console.log(deletedItem);
-    // console.log(`The clicked data is ${IsDelBtnClicked}`);
-
     if (IsDelBtnClicked.ClickedStatus === false) {
       setIsDelBtnClicked({ ClickedStatus: true, ClickedData: deletedItem });
     } else if (IsDelBtnClicked.ClickedStatus === true) {
@@ -84,6 +82,11 @@ function CartPage(props) {
     }
   };
 
+  const CartItemClickHandler = (CartItem) => {
+    dispatch(actionViewProductPage(CartItem));
+    console.log(CartItem);
+  }
+
   // ====== JSX RENDERING ==========
   return (
     <CartPageContainer>
@@ -98,7 +101,13 @@ function CartPage(props) {
                   <OneColumnListCard>
                     <CardBody>
                       <ImgAndDiscountDiv>
-                        <img src={CartItem.ProductImgSrc} alt="sbfc" />
+                        <img
+                          src={CartItem.ProductImgSrc}
+                          alt="sbfc"
+                          onClick={(e) =>
+                            CartItemClickHandler(CartItem)
+                          }
+                        />
                         <span>-%40</span>
                       </ImgAndDiscountDiv>
 

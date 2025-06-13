@@ -15,10 +15,17 @@ import { CloseNavBtn } from "../../Portals/NavMenuModal/NavMenuModal.styles";
 import { BsXLg } from "react-icons/bs";
 
 function LogInPage(props) {
-  // ====== Hooks =======
+  // ====== Hooks and States ======
+  const [SeePassword, setSeePassword] = useState(false);
+  const [SeeConfirmPassword, setSeeConfirmPassword] = useState(false);
+
+  const [NewAccount, setNewAccount] = useState(false);
+
   const [LogInFormData, setLogInFormData] = useState({
-    UserEmail: "",
+    UserFullname: "",
+    UserPhoneNumber: "",
     UserPassword: "",
+    UserConfirmPassword: "",
   });
 
   // ====== props destructuring ======
@@ -31,12 +38,27 @@ function LogInPage(props) {
       [e.target.name]: e.target.value,
     });
   };
-
-  const LogInBtnHandler = (e) =>{
+  // ====== log in button handler ====
+  const LogInBtnHandler = (e) => {
     LogInFormBtnHandler(LogInFormData);
     console.log(LogInFormData);
-  }
+  };
+  
+  // ===== create page nav handler ====
+  const NewAccountPageHandler = (e) => {
+    setNewAccount(!NewAccount);
+  };
 
+  // ======= slash eye handlers =====
+  const SeePasswordHandler = (e) => {
+    setSeePassword(!SeePassword);
+    console.log('wfgyuwihwgy7u');
+  };
+
+  const SeeConfirmPasswordHandler = (e) => {
+    setSeeConfirmPassword(!SeeConfirmPassword);
+
+  }
 
   return (
     <LogInPageDiv>
@@ -50,13 +72,26 @@ function LogInPage(props) {
       </LogInTopDiv>
 
       <LogInFormDiv>
+        {/* ====conditional rendering for name_object ==== */}
+        {NewAccount ? (
+          <p>
+            <input
+              name="UserFullname"
+              value={LogInFormData.UserFullname}
+              onChange={FormChangeHandler}
+              type="text"
+              placeholder="First and Last name"
+            />
+          </p>
+        ) : null}
+
         <p>
           <input
-            name="UserEmail"
-            value={LogInFormData.UserEmail}
+            name="UserPhoneNumber"
+            value={LogInFormData.UserPhoneNumber}
             onChange={FormChangeHandler}
-            type="email"
-            placeholder="Email or Phone Number"
+            type="tel"
+            placeholder="Phone Number"
           />
         </p>
 
@@ -65,25 +100,45 @@ function LogInPage(props) {
             name="UserPassword"
             value={LogInFormData.UserPassword}
             onChange={FormChangeHandler}
-            type="password"
-            placeholder="Password"
+            type={SeePassword ? "text" : "password"}
+            placeholder={NewAccount ? "At least 8 characters" : "Password"}
           />
-          <span>
+          <span onClick={SeePasswordHandler}>
             <FaRegEyeSlash />
           </span>
         </p>
 
-        <LogInButton onClick={LogInBtnHandler}>Log In</LogInButton>
+        {/* ====conditional rendering for confirm_password_object ==== */}
+        {NewAccount ? (
+          <p>
+            <input
+              name="UserConfirmPassword"
+              value={LogInFormData.UserConfirmPassword}
+              onChange={FormChangeHandler}
+              type={SeeConfirmPassword ? "text" : "password"}
+              placeholder="Confirm password"
+            />
+            <span onClick={SeeConfirmPasswordHandler}>
+              <FaRegEyeSlash />
+            </span>
+          </p>
+        ) : null}
 
-        <span
-          style={{
-            fontSize: "16px",
-            fontFamily: "inherit",
-            color: "rgb(42, 115, 204)",
-          }}
-        >
-          Forgotten Password?
-        </span>
+        <LogInButton onClick={LogInBtnHandler}>
+          {NewAccount ? "Create Account" : "Log In"}
+        </LogInButton>
+
+        {NewAccount ? null : (
+          <span
+            style={{
+              fontSize: "16px",
+              fontFamily: "inherit",
+              color: "rgb(42, 115, 204)",
+            }}
+          >
+            Forgotten Password?
+          </span>
+        )}
 
         <div
           style={{
@@ -103,12 +158,38 @@ function LogInPage(props) {
           Continue with Google
         </WithGoogleBtn>
 
-        <span style={{ fontSize: "16px", fontFamily: "inherit" }}>
-          Don't have an account?{" "}
-          <a href="sign Up" style={{ color: "rgb(42, 115, 204)" }}>
-            Sign Up
-          </a>
-        </span>
+        {NewAccount ? (
+          <span style={{ fontSize: "16px", fontFamily: "inherit" }}>
+            Already have an account?{" "}
+            <button onClick={NewAccountPageHandler}
+              style={{
+                color: "rgb(42, 115, 204)",
+                border: "none",
+                background: "transparent",
+                fontSize: "16px",
+                fontFamily: "inherit",
+                textDecoration: "underline",
+              }}
+            >
+              Log In
+            </button>
+          </span>
+        ) : (
+          <span style={{ fontSize: "16px", fontFamily: "inherit" }}>
+            Don't have an account?{" "}
+            <button onClick={NewAccountPageHandler}
+              style={{
+                color: "rgb(42, 115, 204)",
+                border: "none",
+                background: "transparent",
+                fontSize: "16px",
+                fontFamily: "inherit",
+                textDecoration: "underline",
+              }}>
+              Create an account
+            </button>
+          </span>
+        )}
       </LogInFormDiv>
     </LogInPageDiv>
   );

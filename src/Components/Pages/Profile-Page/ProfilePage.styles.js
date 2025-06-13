@@ -29,7 +29,7 @@ export const ProfileTopDiv = styled.div`
     justify-content: center;
 
     & > button {
-      font-size: 140px;
+      font-size: 138px;
       height: 150px;
       color: rgb(60, 64, 67);
       background-color: transparent;
@@ -45,7 +45,7 @@ export const ProfileTopDiv = styled.div`
       align-items: center;
 
       & > li {
-        font-size: 17px;
+        font-size: 15px;
         font-weight: 100;
         display: flex;
         height: 25px;
@@ -53,7 +53,7 @@ export const ProfileTopDiv = styled.div`
         align-items: center;
 
         & > span {
-          font-size: 15px;
+          font-size: 13px;
           font-weight: 400;
           height: 28px;
           text-transform: capitalize;
@@ -90,7 +90,6 @@ export const ProfileMyOrdersDiv = styled.div`
   flex-direction: column;
   align-content: center;
   box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px;
-
   padding: 5px 5px 5px 9px;
   height: 140px;
 
@@ -104,7 +103,7 @@ export const ProfileMyOrdersDiv = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      font-size: 17px;
+      font-size: 15px;
       gap: 8px;
       color: #000000;
       height: fit-content;
@@ -113,7 +112,7 @@ export const ProfileMyOrdersDiv = styled.div`
     & > button {
       border: none;
       background: transparent;
-      font-size: 13px;
+      font-size: 11px;
       color: #994799;
       font-family: inherit;
     }
@@ -136,7 +135,7 @@ export const ProfileMyOrdersDiv = styled.div`
     & > li {
       width: 130px;
       height: 100px;
-      font-size: 14px;
+      font-size: 12px;
       display: flex;
       flex-direction: column;
       align-content: center;
@@ -146,7 +145,7 @@ export const ProfileMyOrdersDiv = styled.div`
         border: none;
         background: transparent;
         color: #994799;
-        font-size: 65px;
+        font-size: 63px;
         height: 70px;
       }
 
@@ -158,7 +157,7 @@ export const ProfileMyOrdersDiv = styled.div`
 
         & > h6 {
           font-family: Arial;
-          font-size: 12px;
+          font-size: 11px;
           font-weight: 700;
           background: #994799;
           width: 16px;
@@ -182,7 +181,7 @@ export const ProfileFavItemsDiv = styled.div`
   flex-direction: row;
   align-content: center;
   gap: 50px;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 16px;
   box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px;
   justify-content: space-between;
@@ -192,7 +191,7 @@ export const ProfileFavItemsDiv = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    font-size: 17px;
+    font-size: 15px;
     gap: 8px;
     color: #000000;
   }
@@ -200,7 +199,7 @@ export const ProfileFavItemsDiv = styled.div`
   & > button {
     border: none;
     background: transparent;
-    font-size: 19px;
+    font-size: 15px;
     width: 25px;
   }
 `;
@@ -215,7 +214,7 @@ export const ProfileBottomDiv = styled.div`
     background: transparent;
     border: none;
     height: 40px;
-    font-size: 17px;
+    font-size: 15px;
     font-family: inherit;
   }
 `;

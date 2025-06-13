@@ -15,25 +15,28 @@ import {
   RatingButton,
   SoldByDiv,
 } from "./ProductPage.styles";
-import { MdOutlineAddShoppingCart, MdOutlineChevronRight,  MdStore } from "react-icons/md";
+import {
+  MdOutlineAddShoppingCart,
+  MdOutlineChevronRight,
+  MdStore,
+} from "react-icons/md";
 import { BsStarFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import AddToCartModal from "../../Portals/AddToCartModal/AddToCartModal";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { actionAddToCart } from "../../../State Management/Redux/Ducks/CartReducer";
-import {  actionViewSellerProfile } from "../../../State Management/Redux/Ducks/PagesNavigationReducer";
-
+import SellerProfilePage from "../SellerProfilePage/SellerProfilePage";
 
 function ProductPage(props) {
   // ======= UseStates =========
   const [Liked, setLiked] = useState(false);
   const [AddBtnClick, setAddBtnClick] = useState(false);
   const [ProductQty, setProductQty] = useState(1);
+  const [ShowSellerPage, setShowSellerPage] = useState(false);
 
   // ======= React-redux Hooks for Global State & Actions ======
   const dispatch = useDispatch();
 
   // const CartData = useSelector((state) => state.cartData);
-  const ExpansionObj = useSelector((state) => state.pagesNavigation)
 
   //======= Props Accessing and Destructring =======
   const PageData = props.dataForProductPage;
@@ -77,79 +80,83 @@ function ProductPage(props) {
   };
 
   const SoldByClickHandler = (data) => {
-    dispatch(actionViewSellerProfile(data));
-    console.log(ExpansionObj);
+    setShowSellerPage(!ShowSellerPage);
   };
 
-  // ============== JSX RENDERING ===================
-  return (
-    <ProductContainer isFromHomepage={props.isFromHomepage}>
-      <ImageDiv>
-        <img src={PageData.ImgSrc} alt="Product Img" />
-      </ImageDiv>
+  // ============ JSX RENDERING ===============
+  if (ShowSellerPage === false) {
+    return (
+      <ProductContainer isFromHomepage={props.isFromHomepage}>
+        <ImageDiv>
+          <img src={PageData.ImgSrc || PageData.ProductImgSrc} alt="Product Img" />
+        </ImageDiv>
 
-      <DetailsDiv>
-        <section>
-          <ProductName>
-            <h4>{PageData.ImgName}</h4>
-            <h6>category of the product</h6>
-          </ProductName>
+        <DetailsDiv>
+          <section>
+            <ProductName>
+              <h4>{PageData.ImgName}</h4>
+              <h6>category of the product</h6>
+            </ProductName>
 
-          <FavouriteButton liked={Liked} onClick={LikedHandler}>
-            {Liked ? <BsHeartFill /> : <BsHeart />}
-          </FavouriteButton>
-        </section>
+            <FavouriteButton liked={Liked} onClick={LikedHandler}>
+              {Liked ? <BsHeartFill /> : <BsHeart />}
+            </FavouriteButton>
+          </section>
 
-        <PriceDiv>
-          <h4>₦ 3,000</h4>
-          <h5>₦ 4,500</h5>
-          <h6>-40%</h6>
-        </PriceDiv>
+          <PriceDiv>
+            <h4>₦ 3,000</h4>
+            <h5>₦ 4,500</h5>
+            <h6>-40%</h6>
+          </PriceDiv>
 
-        <FlexDivRow>
-          <RatingButton>
-            <BsStarFill />
-            <BsStarFill />
-            <BsStarFill />
-            <BsStarFill />
-            <BsStarFill />
-          </RatingButton>
+          <FlexDivRow>
+            <RatingButton>
+              <BsStarFill />
+              <BsStarFill />
+              <BsStarFill />
+              <BsStarFill />
+              <BsStarFill />
+            </RatingButton>
 
-          <NumOfRating> | 19 verified ratings </NumOfRating>
-        </FlexDivRow>
+            <NumOfRating> | 19 verified ratings </NumOfRating>
+          </FlexDivRow>
 
-        <SoldByDiv onClick={() => SoldByClickHandler(PageData)} >
-          <span>Sold By</span>
-          <div>
-         <button><MdStore/></button> 
-          <span>Magic Tasty Treats</span>
-          <button><MdOutlineChevronRight/></button>
-       
+          <SoldByDiv onClick={() => SoldByClickHandler(PageData)}>
+            <span>Sold By</span>
+            <div>
+              <button>
+                <MdStore />
+              </button>
+              <span>Magic Tasty Treats</span>
+              <button>
+                <MdOutlineChevronRight />
+              </button>
+            </div>
+          </SoldByDiv>
+        </DetailsDiv>
 
-          </div>
-        </SoldByDiv>
-
-      </DetailsDiv>
-
-      <ProductFooter>
-        {AddBtnClick ? (
-          <AddToCartModal
-            ImgSrc={PageData.ImgSrc}
-            AddToCartHandler={AddToCartHandler}
-            CloseHandler={CloseHandler}
-            PlusHandler={PlusHandler}
-            MinusHandler={MinusHandler}
-            ProductQty={ProductQty}
-          />
-        ) : (
-          <BuyButton onClick={AddToCartHandler}>
-            <MdOutlineAddShoppingCart />
-            <h3>ADD TO CART</h3>
-          </BuyButton>
-        )}
-      </ProductFooter>
-    </ProductContainer>
-  );
+        <ProductFooter>
+          {AddBtnClick ? (
+            <AddToCartModal
+              ImgSrc={PageData.ImgSrc}
+              AddToCartHandler={AddToCartHandler}
+              CloseHandler={CloseHandler}
+              PlusHandler={PlusHandler}
+              MinusHandler={MinusHandler}
+              ProductQty={ProductQty}
+            />
+          ) : (
+            <BuyButton onClick={AddToCartHandler}>
+              <MdOutlineAddShoppingCart />
+              <h3>ADD TO CART</h3>
+            </BuyButton>
+          )}
+        </ProductFooter>
+      </ProductContainer>
+    );
+  } else if (ShowSellerPage === true) {
+    return <SellerProfilePage CloseSellerPage={SoldByClickHandler} />;
+  }
 }
 
 export default ProductPage;

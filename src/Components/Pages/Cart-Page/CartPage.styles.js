@@ -22,7 +22,7 @@ export const CartPageContainer = styled.div`
 // ======= Locator Text =========
 export const LocatorSpan = styled.span`
   margin: 0px;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 400;
   position: fixed;
   top: 6%;
@@ -116,7 +116,7 @@ export const ProductNameAndCategoryDiv = styled.section`
 
   & > span {
     margin-top: 0px;
-    font-size: 15px;
+    font-size: 13px;
     line-height: 18px;
     font-weight: 400;
     text-transform: capitalize;
@@ -126,7 +126,7 @@ export const ProductNameAndCategoryDiv = styled.section`
     margin-top: 0px;
     margin-bottom: 0px;
     color: #a0a4a8;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
   }
 `;
@@ -139,14 +139,14 @@ export const PriceDiv = styled.div`
   height: 21px;
 
   & > h4 {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
     text-transform: capitalize;
   }
 
   & > h5 {
     color: #a0a4a8;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     text-decoration: line-through;
     text-decoration-color: inherit;
@@ -180,7 +180,7 @@ export const PlusButton = styled(MinusButton)`
 
 export const ButtonSpan = styled(BtnSpan)`
   font-weight: 400;
-  font-size: 15px;
+  font-size: 13px;
   width: auto;
 `;
 
@@ -200,7 +200,7 @@ export const FavBtn = styled.button`
   background: transparent;
   border: none;
   outline: none;
-  font-size : 18px;
+  font-size : 16px;
 
   color: ${(props) =>
     props.liked ? "#994799" : "#4f4f4f"};
@@ -212,7 +212,7 @@ export const DeleteBtn = styled.button`
   color: #d10000;
   border: none;
   outline: none;
-  font-size : 19px;
+  font-size : 17px;
 `;
 
 // ======== The Page Footer ============
@@ -239,14 +239,14 @@ export const EmptyCartContainer = styled.div`
 
   & > h2 {
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     margin-top: -10px;
   }
 
   & > span {
     text-align: center;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 400;
     padding: 0px 10px 0px 10px;
   }

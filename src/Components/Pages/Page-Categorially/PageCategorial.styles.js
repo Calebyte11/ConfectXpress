@@ -13,7 +13,7 @@ export const PageCategorialContainer = styled.div`
 // ==== For the Primary navs list ======
 export const PagePrimaryNav = styled.div`
   position: fixed;
-  top: 6%;
+  top: 7%;
   right: 0px;
   left: 0px;
   z-index: 999;
@@ -51,7 +51,7 @@ export const PriNavList = styled.li`
   overflow: hidden;
 
   & > h3 {
-    font-size: 15px;
+    font-size: 13px;
     font-family: inherit;
     font-weight: 700;
     color: ${({ active }) => (active ? "#994799" : "inherit")};
@@ -155,7 +155,7 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
           & > h4 {
             height: 0px;
             margin-top: 0px;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 400;
             white-space: nowrap;
             text-overflow: ellipsis;
@@ -168,7 +168,7 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
             height: 0px;
             margin-top: 4px;
             color: #a0a4a8;
-            font-size: 11px;
+            font-size: 9px;
             font-weight: 500;
             text-decoration: line-through;
             text-decoration-color: inherit;
@@ -187,7 +187,7 @@ export const TwoColumnListContainer = styled(PopularListContainer)`
           }
 
           & > span {
-            font-size: 12px;
+            font-size: 10px;
             color: #6570a7;
             font-weight: 400;
             width: 100%;

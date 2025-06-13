@@ -15,6 +15,7 @@ import {
   actionViewPageCategorially,
   actionViewProductPage,
 } from "../../../../State Management/Redux/Ducks/PagesNavigationReducer";
+import { MdOutlineChevronRight } from "react-icons/md";
 
 const TopDealsArr = [
   { ImgSrc: ItalianCursine, ImgName: "Pizza Pepperoni" },
@@ -52,7 +53,8 @@ function TopDealsList(props) {
       <section>
         <span>Top Deals</span>
         <button onClick={() => handleShowAll(TopDealsArr, activeStatus)}>
-          Show all{" "}
+          Show all
+          <MdOutlineChevronRight/>
         </button>
       </section>
 

@@ -54,7 +54,7 @@ export const BuyButton = styled.button`
   border-radius: 8px;
   color: #fff;
   font-family: inherit;
-  font-size: 25px;
+  font-size: 23px;
   box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
   display: flex;
   flex-direction: row;
@@ -63,7 +63,7 @@ export const BuyButton = styled.button`
   gap: 7px;
 
   & > h3 {
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 600;
   }
 `;
@@ -97,7 +97,7 @@ export const ProductName = styled.div`
   margin: 0px;
 
   & > h4 {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 500;
     margin: 0px;
     text-transform: capitalize;
@@ -107,7 +107,7 @@ export const ProductName = styled.div`
   & > h6 {
     margin: auto 0px;
     color: #a0a4a8;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
   }
 `;
@@ -119,7 +119,7 @@ export const FavouriteButton = styled.button`
   color: ${(props) => (props.liked ? "#994799" : "#4f4f4f")};
   border: none;
   outline: none;
-  font-size: 18px;
+  font-size: 16px;
   height: 30px;
   padding-top: 0px;
 `;
@@ -135,7 +135,7 @@ export const PriceDiv = styled.div`
   padding: 0px;
 
   & > h4 {
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 600;
     margin: 0px;
     text-transform: capitalize;
@@ -144,7 +144,7 @@ export const PriceDiv = styled.div`
   & > h5 {
     margin: 0px 0px 0px 5px;
     color: gray;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 500;
     text-decoration: line-through;
     text-decoration-color: gray;
@@ -156,7 +156,7 @@ export const PriceDiv = styled.div`
     border-radius: 3px;
     background: #ffdfdf;
     padding: 1px 2px 1px 2px;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 500;
   }
 `;
@@ -173,12 +173,12 @@ export const RatingButton = styled.button`
   border: none;
   padding-left: 0px;
   color: #f6a609;
-  font-size: 16px;
+  font-size: 13px;
 `;
 
 // ==== number of rating
 export const NumOfRating = styled.span`
-  font-size: 15px;
+  font-size: 11px;
   color: #6570a7;
 `;
 
@@ -189,7 +189,7 @@ export const SoldByDiv = styled.div`
   align-content: center;
   align-items: center;
   gap: 50px;
-  font-size: 16px;
+  font-size: 14px;
   margin-top: 16px;
   box-shadow: rgba(32, 33, 36, 0.28) 0px 1px 6px;
   justify-content: space-between;
@@ -204,7 +204,7 @@ export const SoldByDiv = styled.div`
     & > button{
     border: none;
     background: transparent;
-    font-size: 19px;
+    font-size: 17px;
     }
   }
 `;
